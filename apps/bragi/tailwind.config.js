@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
@@ -10,7 +12,12 @@ module.exports = {
       },
       gridRow: {
         web: 'span 2 / span 2',
-      }
+      },
+      colors: {
+        background: colors.zinc['900'],
+        accent: colors.stone['900'],
+        secondary: colors.black,
+      },
     },
   },
   plugins: [],
