@@ -13,8 +13,8 @@ const changeSelection = (newSelection: string) => {
 };
 
 const navButtonClass =
-  'flex flex-col justify-center items-end sm:flex-row sm:items-center sm:justify-start text-xl mx-2 py-2 transition ease-in-out duration-500';
-const iconsClass = 'w-8 h-8 mr-4';
+  'flex flex-col sm:flex-row items-center sm:items-end sm:justify-start text-xl mx-2 py-2 transition ease-in-out duration-500';
+const iconsClass = 'w-8 h-8 sm:mr-4';
 
 const navClasses = (link: string) => {
   const isSelected = selection.value === link;
@@ -30,7 +30,7 @@ const navClasses = (link: string) => {
 </script>
 
 <template>
-  <div class="flex sm:flex-col gap-1">
+  <div class="flex sm:flex-col gap-1 justify-around">
     <router-link
       :class="navClasses('home')"
       to="/home"
