@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from 'vue';
+import { ref, computed } from 'vue';
 import { HomeIcon, SearchIcon, LibraryIcon } from '@heroicons/vue/solid';
 import {
   HomeIcon as HomeIconOutline,
@@ -7,34 +7,54 @@ import {
   LibraryIcon as LibraryIconOutline,
 } from '@heroicons/vue/outline';
 
-const props = defineProps({
-  selected: { type: String, default: 'home' },
-});
-
 const selection = ref('home');
 const changeSelection = (newSelection: string) => {
   selection.value = newSelection;
-}
+};
 
 const navButtonClass =
-  'flex flex-col justify-center items-end sm:flex-row sm:items-center sm:justify-start text-xl mx-2 py-2 text-gray-400 hover:text-white transition ease-in-out duration-500';
+  'flex flex-col justify-center items-end sm:flex-row sm:items-center sm:justify-start text-xl mx-2 py-2 transition ease-in-out duration-500';
 const iconsClass = 'w-8 h-8 mr-4';
+
+const navClasses = (link: string) => {
+  const isSelected = selection.value === link;
+  return [
+    navButtonClass,
+    {
+      'text-gray-400': !isSelected,
+      'hover:text-white': !isSelected,
+      'text-white': isSelected,
+    },
+  ];
+};
 </script>
 
 <template>
   <div class="flex sm:flex-col gap-1">
-    <router-link :class="navButtonClass" to="/home" @click="changeSelection('home')">
-      <HomeIcon v-if="props.selected === 'home'" :class="iconsClass" />
+    <router-link
+      :class="navClasses('home')"
+      to="/home"
+      @click="selection = 'home'"
+    >
+      <HomeIcon v-if="selection === 'home'" :class="iconsClass" />
       <HomeIconOutline v-else :class="iconsClass" />
       Home
     </router-link>
-    <router-link :class="navButtonClass" to="/search" @click="changeSelection('search')">
-      <SearchIcon v-if="props.selected === 'search'" :class="iconsClass" />
+    <router-link
+      :class="navClasses('search')"
+      to="/search"
+      @click="selection = 'search'"
+    >
+      <SearchIcon v-if="selection === 'search'" :class="iconsClass" />
       <SearchIconOutline v-else :class="iconsClass" />
       Search
     </router-link>
-    <router-link :class="navButtonClass" to="/library" @click="changeSelection('library')">
-      <LibraryIcon v-if="props.selected === 'library'" :class="iconsClass" />
+    <router-link
+      :class="navClasses('library')"
+      to="/library"
+      @click="selection = 'library'"
+    >
+      <LibraryIcon v-if="selection === 'library'" :class="iconsClass" />
       <LibraryIconOutline v-else :class="iconsClass" />
       Your Library
     </router-link>
