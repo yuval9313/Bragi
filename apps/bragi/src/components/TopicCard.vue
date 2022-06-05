@@ -7,8 +7,8 @@ const props = defineProps<{
 }>();
 
 const topicCard =
-  'flex max-h-20 max-w-md rounded-md text-2xl items-center gap-3 bg-background-lighter backdrop-blur-sm';
-const topicImage = 'bg-secondary max-h-20 rounded-l-md';
+  'flex rounded-md text-2xl items-center gap-3 bg-background-lighter backdrop-blur-sm';
+const topicImage = 'max-w-[30%] bg-secondary object-contain rounded-l-md';
 </script>
 
 <template>
