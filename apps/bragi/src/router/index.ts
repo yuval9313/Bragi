@@ -1,10 +1,19 @@
-import { createWebHistory, createRouter } from "vue-router";
-import Home from '@/views/HomeView.vue';
+import { createWebHistory, createRouter } from 'vue-router';
 
 const routes = [
-  { path: '/home', component: Home },
-  { path: '/home', component: Home },
-  { path: '/home', component: Home },
+  {
+    path: '/',
+    name: 'Home',
+    component: () => import('@/views/HomeView.vue'),
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: () => import('@/views/HomeView.vue'),
+  },
+  { path: '/search', component: () => import('@/views/SearchView.vue') },
+  { path: '/library', component: () => import('@/views/LibraryView.vue') },
+  { path: '/playlist', name: 'playlist', component: () => import('@/views/SearchView.vue') },
 ];
 
 export const applicationRouter = createRouter({
