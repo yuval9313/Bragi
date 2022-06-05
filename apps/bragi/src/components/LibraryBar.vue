@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import SideBar from "@/layouts/SideBarLayout.vue";
-import NavigationButtons from "@/components/NavigationButtons.vue";
-
+import SideBar from '@/layouts/SideBarLayout.vue';
+import NavigationButtons from '@/components/NavigationButtons.vue';
 </script>
 
 <template>
