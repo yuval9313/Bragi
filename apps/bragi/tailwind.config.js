@@ -14,7 +14,7 @@ module.exports = {
         web: 'span 2 / span 2',
       },
       colors: {
-        background: colors.zinc['900'],
+        background: { lighter: colors.zinc["800"], DEFAULT: colors.zinc["900"] },
         accent: colors.stone['900'],
         secondary: colors.black,
       },
