@@ -8,9 +8,6 @@ import {
 } from '@heroicons/vue/outline';
 
 const selection = ref('home');
-const changeSelection = (newSelection: string) => {
-  selection.value = newSelection;
-};
 
 const navButtonClass =
   'flex flex-col sm:flex-row items-center sm:items-end sm:justify-start text-xl mx-2 py-2 transition ease-in-out duration-500';
